@@ -14,6 +14,7 @@
       color: #fff;
       display: flex;
       flex-direction: column;
+      background: #000; /* pour éviter transparence du video sous le footer */
     }
 
     main {
@@ -84,7 +85,6 @@
 
     #userInput {
       flex: 1;
-      padding: 10px;
       background: #eee;
       color: #000;
     }
@@ -98,6 +98,7 @@
       background: #00bcd4;
       color: white;
       cursor: pointer;
+      transition: background 0.3s;
     }
 
     button:hover {
@@ -145,10 +146,17 @@
       color: #00bcd4;
     }
 
+    /* Correction footer */
+    footer .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px;
+    }
+
     footer p {
-      text-align: center;
-      margin: 10px 0 0;
+      margin: 0;
       font-size: 0.9em;
+      text-align: center;
     }
   </style>
 </head>
@@ -186,11 +194,11 @@
     </div>
   </main>
 
-    <footer style="position: relative; z-index: 10;">
-        <div class="container">
-          <p>&copy; 2025 Edu Trading. Titouan Raymond / Reynald Watfa / Nour Abdelazim</p>
-        </div>
-      </footer>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Edu Trading. Titouan Raymond / Reynald Watfa / Nour Abdelazim</p>
+    </div>
+  </footer>
 
   <script>
     const chatbox = document.getElementById("chatbox");
@@ -242,16 +250,12 @@
           body: JSON.stringify({ message })
         });
 
-        console.log("Réponse brute :", response);
-
         if (!response.ok) {
           const errorText = await response.text();
-          console.error("Erreur HTTP :", response.status, errorText);
           throw new Error(`Erreur HTTP ${response.status}: ${errorText}`);
         }
 
         const data = await response.json();
-        console.log("Données reçues :", data);
 
         if (!data.reply) {
           throw new Error("Réponse vide de l'API");
@@ -260,11 +264,9 @@
         return data.reply.trim();
 
       } catch (error) {
-        console.error("Erreur getGPTResponse :", error);
         throw error;
       }
     }
   </script>
 </body>
 </html>
-
