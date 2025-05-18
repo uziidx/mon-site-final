@@ -14,7 +14,8 @@
       color: #fff;
       display: flex;
       flex-direction: column;
-      background: #000; /* pour éviter transparence du video sous le footer */
+      /* Pas de background opaque pour laisser la vidéo visible */
+      background: transparent;
     }
 
     main {
@@ -36,7 +37,7 @@
       max-width: 900px;
       margin: 40px auto;
       padding: 20px;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.6); /* fond semi-transparent pour lire le texte */
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     }
@@ -106,7 +107,7 @@
     }
 
     header, footer {
-      background-color: #000;
+      background-color: rgba(0, 0, 0, 0.7); /* semi-transparent noir */
       color: white;
       padding: 10px 20px;
     }
@@ -146,7 +147,6 @@
       color: #00bcd4;
     }
 
-    /* Correction footer */
     footer .container {
       max-width: 1200px;
       margin: 0 auto;
