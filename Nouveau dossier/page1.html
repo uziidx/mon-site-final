@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Simulation de Trading - Edu-trading</title>
-    <link rel="stylesheet" href="css/style.css"> 
-
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* Agrandir la zone de contenu spécifique à cette page */
+        #simulation .container {
+            max-width: 95vw; /* presque toute la largeur de l'écran */
+            width: 100%;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+        .chart-container {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo-title">
-                <img src="images/logo.png" alt="Edu-trading" class="logo">
+                <img src="images/logo.png" alt="Edu-trading" class="logo" />
                 <h1>Edu-trading</h1>
             </div>
             <nav>
@@ -21,7 +32,6 @@
                     <li><a href="page1.html">courbes en direct</a></li>
                     <li><a href="page3.html">Assistant ia</a></li>
                     <li><a href="page2.html">Contact</a></li>
-                    
                 </ul>
             </nav>
         </div>
@@ -37,24 +47,24 @@
                     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
                     <script type="text/javascript">
                         new TradingView.widget({
-                            "container_id": "tradingview_advanced_chart",
-                            "width": "100%",
-                            "height": "600",
-                            "symbol": "NASDAQ:AAPL",
-                            "interval": "D",
-                            "timezone": "Europe/Paris",
-                            "theme": "light",
-                            "style": "1",
-                            "locale": "fr",
-                            "toolbar_bg": "#f1f3f6",
-                            "enable_publishing": false,
-                            "hide_top_toolbar": false,
-                            "withdateranges": true,
-                            "allow_symbol_change": true,
-                            "details": true,
-                            "hotlist": false,
-                            "calendar": false,
-                            "studies": ["MACD@tv-basicstudies", "RSI@tv-basicstudies"]
+                            container_id: "tradingview_advanced_chart",
+                            width: "100%",
+                            height: 800,
+                            symbol: "NASDAQ:AAPL",
+                            interval: "D",
+                            timezone: "Europe/Paris",
+                            theme: "light",
+                            style: "1",
+                            locale: "fr",
+                            toolbar_bg: "#f1f3f6",
+                            enable_publishing: false,
+                            hide_top_toolbar: false,
+                            withdateranges: true,
+                            allow_symbol_change: true,
+                            details: true,
+                            hotlist: false,
+                            calendar: false,
+                            studies: ["MACD@tv-basicstudies", "RSI@tv-basicstudies"]
                         });
                     </script>
                 </div>
@@ -62,7 +72,6 @@
             <p>Utilisez ce graphique pour observer les marchés et tester visuellement vos stratégies !</p>
         </div>
     </section>
-    
 
     <!-- Footer -->
     <footer>
