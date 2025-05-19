@@ -13,20 +13,17 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
   font-family: 'Roboto', sans-serif;
   background-color: #f4f4f4;
   color: #333;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
   flex: 1;
+  line-height: 1.6;
 }
 
-/* Permet footer en bas pour toutes les pages */
-body, .page-wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+body {
+  flex: 1;
 }
 
 /* Conteneur général */
@@ -103,28 +100,26 @@ nav ul li a:focus {
   text-decoration: none; /* Pas de soulignement au hover */
 }
 
-/* ========== Correction pour index.html ========== */
-/* Le filtre blanc sur .strategie est moins couvrant */
-body.index-body .strategie {
-  background-color: rgba(255, 255, 255, 0.5); /* plus léger que 0.7 */
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  color: #222;
-}
-
-/* Sections de stratégie - général (pour les autres pages aussi) */
+/* Sections de stratégie */
 .strategie {
-  /* On garde un fallback pour les autres pages */
-  background-color: rgba(255, 255, 255, 0.7);
+  /* *** Correction index.html filtre blanc trop prononcé *** */
+  /* On enlève le fond blanc global sur toute la page */
+  background-color: transparent; /* transparent par défaut */
   margin: 40px 0;
   padding: 20px;
   border-radius: 8px;
+  /* on garde un box-shadow léger pour contraste */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Si tu veux absolument un fond blanc avec transparence légère sur une section spécifique */
+.strategie-content {
+  background-color: rgba(255, 255, 255, 0.4); /* léger filtre blanc */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Garder la mise en page texte + image */
 .strategie h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: 28px;
@@ -153,79 +148,37 @@ body.index-body .strategie {
   flex: 1;
 }
 
-/* ========== Correction pour page1.html ========== */
-/* Assurer que footer est en bas */
-body.page1-body, .page-wrapper.page1-wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-body.page1-body .main-content, 
-.page-wrapper.page1-wrapper .main-content {
-  flex: 1 0 auto;
-}
-
-footer {
-  flex-shrink: 0;
+/* Formulaire de contact */
+.contact-section h2 {
+  font-size: 36px;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
-  padding: 15px 0;
-  font-size: 0.9rem;
-  margin-top: auto; /* pousse footer en bas */
-  user-select: none;
+  margin: 40px 0 20px;
 }
 
-/* ========== Correction pour page2.html ========== */
-
-/* Vidéo en arrière-plan */
-body.page2-body .video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-}
-
-body.page2-body #video-background {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/* Formulaire centré et taille adaptée */
-body.page2-body .form-container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-  background-color: rgba(255, 255, 255, 0.3);
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1; /* au-dessus de la vidéo */
-}
-
-/* Formulaire */
-body.page2-body form {
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 40px;
-  border-radius: 8px;
-  max-width: 700px;
-  width: 100%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  min-height: auto; /* enlève la hauteur fixe trop petite */
+  width: 100%;
+  max-width: 700px;
+  /* *** Correction page2.html formulaire trop petit *** */
+  min-height: auto; /* on enlève la hauteur fixe */
+  margin: 0 auto 60px;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+}
+
+/* Pour améliorer la taille du formulaire (page2) */
+body.page2-body form {
+  max-width: 90vw; /* s’adapte à la largeur écran */
 }
 
 /* Form groups */
 .form-group {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -240,14 +193,13 @@ label {
 }
 
 input, textarea {
+  flex: 1;
   font-size: 18px;
   padding: 14px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-family: 'Roboto', sans-serif;
   resize: none;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 textarea {
@@ -289,6 +241,27 @@ button:hover {
   background-color: #45a049;
 }
 
+/* Vidéo en arrière-plan */
+/* *** Correction page2.html vidéo disparue *** */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden; /* évite scroll indésirable */
+}
+
+#video-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 /* Layout général */
 .page-wrapper {
   display: flex;
@@ -305,12 +278,23 @@ button:hover {
   padding-top: 40px;
 }
 
-/* Footer */
+/* *** Correction page1.html footer milieu => footer en bas *** */
+body.page1-body, .page-wrapper.page1-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.page1-body .main-content, 
+.page-wrapper.page1-wrapper .main-content {
+  flex: 1 0 auto;
+}
+
 footer {
   text-align: center;
   padding: 15px 0;
   font-size: 0.9rem;
-  margin-top: 40px;
+  margin-top: auto; /* pousse footer en bas */
   user-select: none;
 }
 
