@@ -1,68 +1,187 @@
-/* ========== Styles Généraux ========== */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@600;700&display=swap');
 
-body, html {
+/* Reset basique */
+* {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  height: 100%;
+  box-sizing: border-box;
 }
 
-/* Conteneur principal, flex pour que footer puisse coller en bas */
-.page-wrapper {
+/* Global */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
   display: flex;
   flex-direction: column;
+  flex: 1;
+}
+
+/* Permet footer en bas pour toutes les pages */
+body, .page-wrapper {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Contenu principal qui pousse footer en bas */
-.main-content {
-  flex: 1 0 auto;
-  padding: 20px;
-  background-color: #f4f4f4;
+/* Conteneur général */
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Footer */
-footer {
-  flex-shrink: 0;
-  background-color: #222;
+/* Header & Footer commun */
+header, footer {
+  background-color: #000;
   color: white;
-  text-align: center;
   padding: 15px 0;
-  font-size: 14px;
+  flex-shrink: 0;
 }
 
-/* ========== Styles SPECIFIQUES pour index.html ========== */
+.header-container,
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-/* On cible uniquement si la page contient .index-body sur le body */
+/* Header specifics */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  margin-right: 15px;
+}
+
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  letter-spacing: 1px;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  color: #ffd700;
+  text-decoration: none; /* Pas de soulignement au hover */
+}
+
+/* ========== Correction pour index.html ========== */
+/* Le filtre blanc sur .strategie est moins couvrant */
 body.index-body .strategie {
-  background-color: rgba(255, 255, 255, 0.3); /* filtre léger */
+  background-color: rgba(255, 255, 255, 0.5); /* plus léger que 0.7 */
   max-width: 900px;
   margin: 40px auto;
   padding: 20px;
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   color: #222;
+}
+
+/* Sections de stratégie - général (pour les autres pages aussi) */
+.strategie {
+  /* On garde un fallback pour les autres pages */
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: 40px 0;
+  padding: 20px;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* ========== Styles SPECIFIQUES pour page1.html ========== */
-
-/* Pour s'assurer que le footer reste en bas */
-body.page1-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+.strategie h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #333;
 }
 
-body.page1-body .main-content {
+.strategie-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.strategie-img {
+  width: 40%;
+  max-width: 300px;
+  margin-right: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+
+.strategie p {
+  font-size: 16px;
+  color: #333;
+  flex: 1;
+}
+
+/* ========== Correction pour page1.html ========== */
+/* Assurer que footer est en bas */
+body.page1-body, .page-wrapper.page1-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.page1-body .main-content, 
+.page-wrapper.page1-wrapper .main-content {
   flex: 1 0 auto;
 }
 
-/* ========== Styles SPECIFIQUES pour page2.html ========== */
+footer {
+  flex-shrink: 0;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  margin-top: auto; /* pousse footer en bas */
+  user-select: none;
+}
 
-/* Vidéo en fond */
+/* ========== Correction pour page2.html ========== */
+
+/* Vidéo en arrière-plan */
 body.page2-body .video-background {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -73,11 +192,13 @@ body.page2-body #video-background {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* Formulaire centré et taille adaptée */
 body.page2-body .form-container {
-  position: relative;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -85,10 +206,13 @@ body.page2-body .form-container {
   padding: 40px 20px;
   background-color: rgba(255, 255, 255, 0.3);
   box-sizing: border-box;
+  position: relative;
+  z-index: 1; /* au-dessus de la vidéo */
 }
 
+/* Formulaire */
 body.page2-body form {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 40px;
   border-radius: 8px;
   max-width: 700px;
@@ -97,29 +221,116 @@ body.page2-body form {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  min-height: auto; /* enlève la hauteur fixe trop petite */
 }
 
-/* Form controls */
-body.page2-body input, 
-body.page2-body textarea, 
-body.page2-body button {
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+/* Form groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+input, textarea {
+  font-size: 18px;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  resize: none;
   width: 100%;
   box-sizing: border-box;
-  font-family: inherit;
 }
 
-body.page2-body button {
+textarea {
+  height: 150px;
+}
+
+button[type="submit"] {
+  align-self: center;
+  margin-top: 20px;
+  padding: 14px 40px;
+  font-size: 18px;
   background-color: #007BFF;
   color: white;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
   transition: background-color 0.3s ease;
 }
 
-body.page2-body button:hover {
+button[type="submit"]:hover {
   background-color: #0056b3;
+}
+
+/* Boutons généraux */
+button {
+  padding: 12px 30px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Layout général */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  margin-top: 40px;
+  user-select: none;
+}
+
+/* Style pour le texte mis en surbrillance */
+mark {
+  background-color: white;
+  color: black;
+  padding: 0 5px;
+}
+
+/* Lien autour du logo et nom sans effet visuel */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-link h1 {
+  margin: 0;
+  color: white;
+  font-size: 28px;
 }
