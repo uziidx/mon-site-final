@@ -78,7 +78,8 @@
         chatbox.scrollTop = chatbox.scrollHeight;
       } catch (error) {
         typing.innerText = "";
-        chatbox.innerHTML += `<div class="msg user"><strong>Vous:</strong> ${message}</div>`;
+        chatbox.innerHTML += <div class="msg user"><strong>Vous:</strong> ${message}</div>;
+
 
         console.error("Erreur dans sendMessage:", error);
       }
