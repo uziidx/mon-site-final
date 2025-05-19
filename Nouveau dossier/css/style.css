@@ -698,3 +698,38 @@ body {
 header, footer {
     flex-shrink: 0;
 }
+/* Lien autour du logo et du nom sans effet visuel */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Enlever le soulignement */
+  color: inherit; /* Ne pas changer la couleur du texte */
+}
+
+/* Taille fixe du texte du nom */
+.logo-link h1 {
+  margin: 0;
+  color: white;  /* Garde la couleur du texte comme avant */
+  font-size: 28px; /* Garde la taille fixe */
+}
+
+/* Taille du logo fixée */
+.logo {
+  height: 50px; /* hauteur fixe du logo */
+  width: auto;
+  margin-right: 15px; /* Espace entre le logo et le texte */
+}
+
+/* Enlever les effets de lien dans la navigation */
+nav ul li a {
+  color: white; /* Couleur du texte dans le menu */
+  text-decoration: none; /* Enlever le soulignement du lien */
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  color: #ffd700; /* doré au hover, mais pas de soulignement */
+}
