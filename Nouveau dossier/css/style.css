@@ -1,288 +1,125 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@600;700&display=swap');
+/* ========== Styles Généraux ========== */
 
-/* Reset basique */
-* {
+body, html {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* Global */
-html, body {
+  font-family: Arial, sans-serif;
   height: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  flex: 1;
-  line-height: 1.6;
 }
 
-body {
-  flex: 1;
-}
-
-/* Conteneur général */
-.container {
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Header & Footer commun */
-header, footer {
-  background-color: #000;
-  color: white;
-  padding: 15px 0;
-  flex-shrink: 0;
-}
-
-.header-container,
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Header specifics */
-.logo-title {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.logo {
-  height: 50px;
-  width: auto;
-  margin-right: 15px;
-}
-
-header h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 28px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-/* Navigation */
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-}
-
-nav ul li {
-  display: inline;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-  letter-spacing: 1px;
-}
-
-nav ul li a:hover,
-nav ul li a:focus {
-  color: #ffd700;
-  text-decoration: none; /* Pas de soulignement au hover */
-}
-
-/* Sections de stratégie */
-.strategie {
-  background-color: rgba(255, 255, 255, 0.7);
-  margin: 40px 0;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.strategie h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 28px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.strategie-content {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.strategie-img {
-  width: 40%;
-  max-width: 300px;
-  margin-right: 20px;
-  border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
-}
-
-.strategie p {
-  font-size: 16px;
-  color: #333;
-  flex: 1;
-}
-
-/* Formulaire de contact */
-.contact-section h2 {
-  font-size: 36px;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  margin: 40px 0 20px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 700px;
-  min-height: 600px;
-  margin: 0 auto 60px;
-  padding: 40px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  justify-content: space-between;
-}
-
-.form-group {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-label {
-  font-weight: bold;
-  font-family: 'Montserrat', sans-serif;
-  color: #333;
-  margin-bottom: 8px;
-}
-
-input, textarea {
-  flex: 1;
-  font-size: 18px;
-  padding: 14px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-family: 'Roboto', sans-serif;
-  resize: none;
-}
-
-textarea {
-  height: 150px;
-}
-
-button[type="submit"] {
-  align-self: center;
-  margin-top: 20px;
-  padding: 14px 40px;
-  font-size: 18px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-  transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-/* Boutons généraux */
-button {
-  padding: 12px 30px;
-  font-size: 16px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-/* Vidéo en arrière-plan */
-.video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-#video-background {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-/* Layout général */
+/* Conteneur principal, flex pour que footer puisse coller en bas */
 .page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+/* Contenu principal qui pousse footer en bas */
 .main-content {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding-top: 40px;
+  flex: 1 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
 }
 
 /* Footer */
 footer {
+  flex-shrink: 0;
+  background-color: #222;
+  color: white;
   text-align: center;
   padding: 15px 0;
-  font-size: 0.9rem;
-  margin-top: 40px;
-  user-select: none;
+  font-size: 14px;
 }
 
-/* Style pour le texte mis en surbrillance */
-mark {
-  background-color: white;
-  color: black;
-  padding: 0 5px;
+/* ========== Styles SPECIFIQUES pour index.html ========== */
+
+/* On cible uniquement si la page contient .index-body sur le body */
+body.index-body .strategie {
+  background-color: rgba(255, 255, 255, 0.3); /* filtre léger */
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 8px;
+  color: #222;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Lien autour du logo et nom sans effet visuel */
-.logo-link {
+/* ========== Styles SPECIFIQUES pour page1.html ========== */
+
+/* Pour s'assurer que le footer reste en bas */
+body.page1-body {
   display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.logo-link h1 {
-  margin: 0;
+body.page1-body .main-content {
+  flex: 1 0 auto;
+}
+
+/* ========== Styles SPECIFIQUES pour page2.html ========== */
+
+/* Vidéo en fond */
+body.page2-body .video-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+body.page2-body #video-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Formulaire centré et taille adaptée */
+body.page2-body .form-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+}
+
+body.page2-body form {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Form controls */
+body.page2-body input, 
+body.page2-body textarea, 
+body.page2-body button {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+body.page2-body button {
+  background-color: #007BFF;
   color: white;
-  font-size: 28px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+body.page2-body button:hover {
+  background-color: #0056b3;
 }
