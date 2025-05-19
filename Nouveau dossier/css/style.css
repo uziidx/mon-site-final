@@ -143,7 +143,7 @@ form {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 100px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 30px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -197,7 +197,7 @@ button[type="submit"]:hover {
 
 #video-background {
     width: 100%;
-    height: 10vh0;
+    height: 100vh;
     object-fit: cover;
     position: absolute;
     top: 0;
@@ -497,93 +497,153 @@ footer {
   margin-top: 40px;
   user-select: none;
 }
-/* Utilisation de la hauteur de la fenêtre */
-html, body {
-  height: 100%; /* Utilisation de toute la hauteur de l'écran */
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column; /* Disposition verticale */
-}
-
-/* Section vidéo en fond */
+/* Vidéo en arrière-plan */
 .video-background {
-  position: relative;
-  height: 100vh; /* Occupe toute la hauteur de la fenêtre */
-  width: 100%;
-  overflow: hidden; /* Évite de voir un espace blanc */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 #video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Couvre toute la surface sans déformation */
-  z-index: -1; /* Derrière le contenu */
+    width: 100%;
+    height: 100vh; /* Assurer que la vidéo prend toute la hauteur de l'écran */
+    object-fit: cover; /* Couvre l'écran sans déformation */
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-/* Filtre semi-transparent sur la vidéo */
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.4); /* Filtre blanc semi-transparent */
-  z-index: 1; /* Au-dessus de la vidéo, mais sous le contenu */
+/* Empêcher l'espacement sous la vidéo et ajuster la hauteur */
+body {
+    height: 100%; /* Occupation totale de la hauteur */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Conteneur du formulaire de contact */
-.container {
-  position: relative; /* Position relative pour garantir que tout soit bien situé */
-  z-index: 2; /* Au-dessus du fond vidéo */
-  padding: 20px;
-  max-width: 600px; /* Largeur maximale du formulaire */
-  margin: auto;
-  background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  color: #fff; /* Texte en blanc */
-  overflow: hidden;
+/* Conteneur principal */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Hauteur minimum égale à la taille de l'écran */
 }
 
-/* Styles du formulaire */
+/* Section principale avec formulaire */
+.main-content {
+    flex: 1; /* Cette section prend tout l'espace restant */
+    display: flex;
+    justify-content: center; /* Centrage horizontal */
+    align-items: flex-start; /* Aligne le formulaire en haut */
+    padding-top: 40px; /* Marge au-dessus du formulaire */
+}
+
+.contact-section {
+    width: 100%;
+    max-width: 800px; /* Limite la largeur du formulaire */
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    padding: 0 20px;
+}
+
+/* Formulaire de contact */
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+    min-height: 600px; /* Hauteur minimum du formulaire */
+    margin: 60px auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fond légèrement transparent */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    justify-content: space-between;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 input, textarea {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: none;
+    flex: 1;
+    font-size: 18px;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    resize: none;
 }
 
-button {
-  padding: 10px;
-  font-size: 16px;
-  background-color: #009688;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+textarea {
+    height: 150px;
 }
 
-button:hover {
-  background-color: #00796b;
+button[type="submit"] {
+    align-self: center;
+    margin-top: 20px;
+    padding: 14px 40px;
+    font-size: 18px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
 }
 
-/* Footer en bas */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
 footer {
-  background-color: #000;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 14px;
-  margin-top: auto; /* Permet de pousser le footer vers le bas */
-  width: 100%;
+    background-color: #000000; /* noir */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    user-select: none;
+}
+
+/* Ajuster la hauteur du footer pour ne pas causer d'espacement inutile */
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Section de la page contact */
+.contact-section h2 {
+    font-size: 36px; /* plus grand que le reste */
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* Empêche le footer de flotter en haut quand peu de contenu */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    flex: 1;
+}
+
+header, footer {
+    flex-shrink: 0;
 }
