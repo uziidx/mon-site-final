@@ -1,49 +1,87 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stratégies de Trading</title>
-    <link rel="stylesheet" href="css/style.css"> <!-- Lien vers le fichier CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stratégies de Trading</title>
+  <link rel="stylesheet" href="css/style.css"> <!-- Lien vers le fichier CSS -->
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: url('https://t3.ftcdn.net/jpg/06/35/91/98/360_F_635919879_msoUYqQFugoCdNOJyayogBd35FeiUpmB.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    main.presentation {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 40px 20px;
+      background-color: rgba(0, 0, 0, 0.5); /* effet de voile sombre pour lisibilité */
+    }
+
+    main.presentation h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    main.presentation p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 10px auto;
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 15px 0;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-<header>
-  <div class="container header-container">
-    <div class="logo-title">
-      <!-- Lien autour du logo et du nom du site -->
-      <a href="page4.html" style="display: flex; align-items: center; text-decoration: none;">
-        <img src="images/logo.png" alt="Edu-trading" class="logo" />
-        <h1 style="margin: 0; color: white;">Edu-trading</h1>
-      </a>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo-title">
+        <!-- Lien autour du logo et du nom du site -->
+        <a href="page4.html" style="display: flex; align-items: center; text-decoration: none;">
+          <img src="images/logo.png" alt="Edu-trading" class="logo" />
+          <h1 style="margin: 0; color: white;">Edu-trading</h1>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="page4.html">Accueil</a></li>
+          <li><a href="index.html">Stratégies</a></li>
+          <li><a href="page1.html">courbes en direct</a></li>
+          <li><a href="page3.html">Assistant ia</a></li>
+          <li><a href="page2.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <ul>
-        <li><a href="page4.html">Accueil</a></li>
-        <li><a href="index.html">Stratégies</a></li>
-        <li><a href="page1.html">courbes en direct</a></li>
-        <li><a href="page3.html">Assistant ia</a></li>
-        <li><a href="page2.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  </header>
 
- <main class="presentation" role="main" aria-label="Présentation de EDU-TRADING">
+  <!-- Contenu principal -->
+  <main class="presentation" role="main" aria-label="Présentation de EDU-TRADING">
     <h2>Bienvenue sur EDU-TRADING</h2>
-    <p>Edu-Trading est une plateforme pensée par des passionnés — Titouan Raymond, Nour Abdelazim et Reynald Watfa  </p>
+    <p>Edu-Trading est une plateforme pensée par des passionnés — Titouan Raymond, Nour Abdelazim et Reynald Watfa.</p>
     <p>Elle a été créée pour transmettre les bases et les stratégies du trading de manière simple, structurée et engageante.</p>
     <p>Notre mission ? Vous aider à comprendre et à maîtriser les marchés avec sérieux, mais sans prise de tête.</p>
   </main>
 
-
-
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Stratégies de Trading. Titouan Raymond / Reynald Watfa / Nour Abdelazim</p>
-        </div>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Stratégies de Trading. Titouan Raymond / Reynald Watfa / Nour Abdelazim</p>
+    </div>
+  </footer>
 </body>
 </html>
