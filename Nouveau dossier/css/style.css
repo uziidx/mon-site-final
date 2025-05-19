@@ -526,6 +526,64 @@ body, html {
     min-height: 100vh; /* L'ensemble de la page occupe toute la hauteur */
 }
 
+/* Header */
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px 0;
+    position: relative; /* Assure que le header reste au-dessus de la vidéo */
+    z-index: 2; /* Le header doit être au-dessus de la vidéo */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px; /* Taille du logo ajustée */
+    height: auto;
+    margin-right: 15px;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
 /* Section principale avec formulaire */
 .main-content {
     flex: 1; /* Cette section prend tout l'espace restant */
