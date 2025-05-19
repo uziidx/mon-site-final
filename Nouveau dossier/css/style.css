@@ -497,3 +497,25 @@ footer {
   margin-top: 40px;
   user-select: none;
 }
+.page-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.video-container {
+  position: absolute;
+  top: 100px; /* hauteur estimée de ton header */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 100px - 80px); /* hauteur totale - header - footer */
+  z-index: -1;
+  overflow: hidden;
+}
+
+#background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
