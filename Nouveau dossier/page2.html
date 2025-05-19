@@ -1,91 +1,75 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Edu Trading</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header>
+      <div class="container header-container">
+        <div class="logo-title">
+          <img src="images/logo.png" alt="Edu-trading" class="logo" />
+          <h1>Edu-trading</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Stratégie</a></li>
+            <li><a href="page1.html">courbes en direct</a></li>
+            <li><a href="page3.html">Assistant ia</a></li>
+            <li><a href="page2.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-html, body {
-  height: 100vh;
-  overflow: hidden; /* empêche le scroll */
-  font-family: 'Segoe UI', sans-serif;
-}
+    <!-- Section contact -->
+    <main class="main-content">
+      <section id="contact" class="contact-section">
+        <!-- Fond vidéo -->
+        <div class="video-background">
+          <video autoplay muted loop id="video-background">
+            <source src="/videos/contact-background.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
+          <!-- Filtre blanc semi-transparent par-dessus la vidéo -->
+          <div class="video-overlay"></div>
+        </div>
 
-.page-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
+        <!-- Contenu de contact -->
+        <div class="container">
+          <h2><mark>Contactez-nous</mark></h2>
 
-/* Header & footer hauteur fixe */
-header, footer {
-  background: #000;
-  color: white;
-  padding: 10px 20px;
-  flex-shrink: 0;
-  height: 70px; /* fixe */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-/* Main prend le reste */
-main {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-}
+          <form action="#" method="POST">
+            <div class="form-group">
+              <label for="nom">Nom :</label>
+              <input type="text" id="nom" name="nom" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message :</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit">Envoyer</button>
+          </form>
+        </div>
+      </section>
+    </main>
 
-/* Vidéo pleine hauteur de main */
-#background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
-/* Contenu centré dans main */
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
-  color: white;
-  text-align: center;
-}
-
-/* Chat input */
-#controls {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-input, button {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  font-size: 16px;
-}
-
-#userInput {
-  flex: 1;
-  background: #eee;
-  color: #000;
-}
-
-button {
-  background: #00bcd4;
-  color: #fff;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #0097a7;
-}
+    <!-- Footer toujours en bas -->
+    <footer style="position: relative; z-index: 10;">
+        <div class="container">
+          <p>&copy; 2025 Edu Trading. Titouan Raymond / Reynald Watfa / Nour Abdelazim</p>
+        </div>
+      </footer>
+      
+  </div>
+</body>
+</html>
